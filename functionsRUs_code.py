@@ -1,6 +1,39 @@
-#Gavin Clifton
+# Gavin Clifton
+# Ben Funk
+# MaryCatherine Shepherd
+# Sam Jenson
+# Thomas Apke
 
 import random
+
+# custom function that displays the menu
+def menu(): 
+    print("\nMenu: ")
+    print("1. Start a new season: ")
+    print("2. View season results: ")
+    print("3. Quit")
+    choice = input("Enter your choice here: ")
+    return choice
+
+# main line of code
+while True:
+    choice = menu()
+    
+    if choice == "1" :
+        print("Lets go") # input custom function
+    elif choice == "2":
+        print("Hold")   # input custom function
+    elif choice == "3":
+        print(f"Goodbye, {player_name}! Thanks for playing.")
+        break
+    else: 
+        print("Invalid choice. Please enter 1, 2, or 3")
+
+
+
+
+
+
 
 #Get inputs
 home = input('Enter the name of the home team: ')
@@ -42,8 +75,6 @@ for key in games:
     for items in games.keys():
         games[key] = [key, home_score, away_score]
 
-
-    
 
 
 #return number of games, scores, and overall record
