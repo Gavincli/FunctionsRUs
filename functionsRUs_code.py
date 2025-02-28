@@ -6,10 +6,25 @@ def playTheGame(homeTeam, awayTeam):
     home_score = 0
     away_score = 0
     
+<<<<<<< Updated upstream
     #prevent ties
     while home_score == away_score:
         home_score = random.randrange(0,11)
         away_score = random.randrange(0, 11)
+=======
+    if choice == "1" :
+        print("Lets go") # input custom function
+    elif choice == "2":
+        print("Hold")   # input custom function
+    elif choice == "3":
+        #print(f"Goodbye, {player_name}! Thanks for playing.")
+        break
+    else: 
+        print("Invalid choice. Please enter 1, 2, or 3")
+
+
+
+>>>>>>> Stashed changes
 
     print(f'{homeTeam}: {home_score}, {awayTeam}: {away_score}')
 
