@@ -2,6 +2,28 @@
 
 import random
 
+def playTheGame(homeTeam, awayTeam):
+    home_score = 0
+    away_score = 0
+    
+    #prevent ties
+    while home_score == away_score:
+        home_score = random.randrange(0,11)
+        away_score = random.randrange(0, 11)
+
+    print(f'{homeTeam}: {home_score}, {awayTeam}: {away_score}')
+
+    #solve for win/loss
+    if home_score > away_score:
+        gameResult = 'W'
+        #winCount += 1
+    else:
+        gameResult = 'L'
+        #lossCount += 1
+
+    
+    return gameResult
+
 #Get inputs
 home = input('Enter the name of the home team: ')
 
@@ -20,33 +42,12 @@ while gameCount < numGames:
     away = input(f'Enter the name for the away team for game {gameCount}: ')
     games[away] = []
     
-#generate scores
-for key in games:
-    home_score = 0
-    away_score = 0
-    
-    #prevent ties
-    while home_score == away_score:
-        home_score = random.randrange(0,11)
-        away_score = random.randrange(0, 11)
 
-    #solve for win/loss
-    if home_score > away_score:
-        winner = 'Win'
-        winCount += 1
-    else:
-        winner = 'Loss'
-        lossCount += 1
-    
-    #assign values to dictionary
-    for items in games.keys():
-        games[key] = [key, home_score, away_score]
+#Play the game
+result = playTheGame(home, away)
 
 
-    
-
-
-#return number of games, scores, and overall record
+"""#return number of games, scores, and overall record
 print()
 for item in games:
     opponent = games[item][0]
@@ -55,4 +56,4 @@ for item in games:
     
     print(f"{home}'s score: {home_score}, {opponent}'s score: {opp_score}")
 
-print(f"Final season record: {home} {winCount}-{lossCount}")
+print(f"Final season record: {home} {winCount}-{lossCount}")"""
