@@ -56,3 +56,27 @@ for item in games:
     print(f"{home}'s score: {home_score}, {opponent}'s score: {opp_score}")
 
 print(f"Final season record: {home} {winCount}-{lossCount}")
+
+def playTournament():
+    print("Choose your team:")
+    lstNames=['BYU', 'UVU', 'USU', 'SDSU', 'OSU']
+    for team in lstNames:
+        print(team)
+    selectTeam = input("\nEnter which team you want to play as: ")
+    position = int(lstNames.index(selectTeam))
+    lstNames.pop(position)
+    print("\nRemaining teams to play: ")
+    for team in lstNames:
+        print(team)
+    while lstNames.__len__() > 0:
+        selectOpp = input("\nEnter which team you want to play: ")
+        position = int(lstNames.index(selectOpp))
+        lstNames.pop(position)
+        # games[selectOpp] = playTheGame(selectTeam,selectOpp)
+        print(f"You chose to play {selectOpp}.\n")
+        print(f"\nTeams remaining: ")
+        for team in lstNames:
+            print(team)
+    print("None, calculating results...\n")
+
+playTournament()
