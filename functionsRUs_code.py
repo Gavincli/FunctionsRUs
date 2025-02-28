@@ -57,20 +57,27 @@ for item in games:
 
 print(f"Final season record: {home} {winCount}-{lossCount}")
 
+
+# setting up the custom function for the player to pick which team to play as
 def playTournament():
     print("Choose your team:")
     lstNames=['BYU', 'UVU', 'USU', 'SDSU', 'OSU']
     for team in lstNames:
         print(team)
+    # getting input for what team they're playing as
     selectTeam = input("\nEnter which team you want to play as: ")
     position = int(lstNames.index(selectTeam))
+    # popping the home team from the list
     lstNames.pop(position)
+    # display remaining teams that will be their opponents
     print("\nRemaining teams to play: ")
     for team in lstNames:
         print(team)
+    # set up a loop to continue running until there are no more teams to select
     while lstNames.__len__() > 0:
         selectOpp = input("\nEnter which team you want to play: ")
         position = int(lstNames.index(selectOpp))
+        # popping the opponent team from the list
         lstNames.pop(position)
         # games[selectOpp] = playTheGame(selectTeam,selectOpp)
         print(f"You chose to play {selectOpp}.\n")
