@@ -19,7 +19,6 @@ def intro():
 player_name = intro()
 
 #Get inputs
-home = input('Enter the name of the home team: ')
 # setting up the custom function for the player to pick which team to play as
 def playTournament():
     print("Choose your team:")
@@ -87,7 +86,7 @@ def playTheGame(homeTeam, awayTeam):
 
 # Function to print team results
 def printResults(selectTeam, winCount, lossCount):
-    print(f"Final season record: {lossCount}: {selectTeam} - {winCount}")
+    print(f"Final season record: {selectTeam} : {winCount} - {lossCount}")
 
 # custom function that displays the menu
 def menu(): 
@@ -103,7 +102,7 @@ while True:
     choice = menu()
     
     if choice == "1" :
-        print("Lets go") # input custom function
+        print("Let's go\n") # input custom function
         selectTeam, winCount, lossCount = playTournament()
         printResults(selectTeam, winCount, lossCount)
     elif choice == "2":
@@ -117,16 +116,16 @@ while True:
 
 
 
-"""#return number of games, scores, and overall record
+#return number of games, scores, and overall record
 print()
 for item in games:
     opponent = games[item][0]
     home_score = games[item][1]
     opp_score = games[item][2]
     
-    print(f"{home}'s score: {home_score}, {opponent}'s score: {opp_score}")
+    print(f"{selectTeam}'s score: {home_score}, {opponent}'s score: {opp_score}")
 
-print(f"Final season record: {home} {winCount}-{lossCount}") """
+print(f"Final season record: {selectTeam} {winCount}-{lossCount}")
 
 
 
