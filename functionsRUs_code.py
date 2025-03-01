@@ -6,6 +6,20 @@
 
 import random
 
+#Introduction to game, explains rules and prompts for a name
+def intro():
+    print("Welcome to the Women's Soccer Season Generator Game!")
+    name = input('Enter your name: ').title()
+    print(f"Hi {name}! Here are the rules of the game:\n"
+        "1. Select an option from the menu.\n"
+        "2. If option one, choose your team from the list of all teams.\n"
+        "3. Select an opposing team.\n")
+    return name
+
+player_name = intro()
+
+#Get inputs
+home = input('Enter the name of the home team: ')
 # setting up the custom function for the player to pick which team to play as
 def playTournament():
     print("Choose your team:")
