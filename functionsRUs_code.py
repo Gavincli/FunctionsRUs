@@ -13,7 +13,7 @@ def playTournament():
     for team in lstNames:
         print(team)
     # getting input for what team they're playing as
-    selectTeam = input("\nEnter which team you want to play as: ")
+    selectTeam = input("\nEnter which team you want to play as: ").upper()
     position = int(lstNames.index(selectTeam))
     # popping the home team from the list
     lstNames.pop(position)
@@ -25,7 +25,7 @@ def playTournament():
     lossCount = int(0)
     # set up a loop to continue running until there are no more teams to select
     while lstNames.__len__() > 0:
-        selectOpp = input("\nEnter which team you want to play: ")
+        selectOpp = input("\nEnter which team you want to play: ").upper()
         position = int(lstNames.index(selectOpp))
         # popping the opponent team from the list
         lstNames.pop(position)
@@ -39,10 +39,10 @@ def playTournament():
         result = playTheGame(selectTeam, selectOpp)
         if result == 'W':
             winCount += 1
-            pass
+
         elif result == 'L':
             lossCount += 1
-            pass
+
 
         print(f"\nEnter the next team. \nTeams remaining: ")
         for team in lstNames:
@@ -91,9 +91,10 @@ while True:
     if choice == "1" :
         print("Lets go") # input custom function
         selectTeam, winCount, lossCount = playTournament()
-        printResults(selectTeam, winCount, lossCount)
+        
     elif choice == "2":
-        print("Hold")   # input custom function
+        printResults(selectTeam, winCount, lossCount)
+
     elif choice == "3":
         print(f"Goodbye, {player_name}! Thanks for playing.")
         break
