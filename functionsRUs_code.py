@@ -21,6 +21,8 @@ def playTournament():
     print("\nRemaining teams to play: ")
     for team in lstNames:
         print(team)
+    winCount = int(0)
+    lossCount = int(0)
     # set up a loop to continue running until there are no more teams to select
     while lstNames.__len__() > 0:
         selectOpp = input("\nEnter which team you want to play: ")
@@ -32,20 +34,21 @@ def playTournament():
         print(f"You chose to play {selectOpp}.\n")
 
         #simulate the game, add to Win/Loss record
+        
 
         result = playTheGame(selectTeam, selectOpp)
         if result == 'W':
-            #winCount += 1
+            winCount += 1
             pass
         elif result == 'L':
-            #lossCount += 1
+            lossCount += 1
             pass
 
         print(f"\nEnter the next team. \nTeams remaining: ")
         for team in lstNames:
             print(team)
     print("None, calculating results...\n")
-    #return winCount, lossCount
+    return selectTeam, winCount, lossCount
 
 # take the two variables and simulate a game
 def playTheGame(homeTeam, awayTeam):
@@ -62,14 +65,15 @@ def playTheGame(homeTeam, awayTeam):
     #solve for win/loss
     if home_score > away_score:
         gameResult = 'W'
-        #winCount += 1
     else:
         gameResult = 'L'
-        #lossCount += 1
 
     
     return gameResult
 
+# Function to print team results
+def printResults(selectTeam, winCount, lossCount):
+    print(f"Final season record: {lossCount}: {selectTeam} - {winCount}")
 
 # custom function that displays the menu
 def menu(): 
@@ -86,8 +90,8 @@ while True:
     
     if choice == "1" :
         print("Lets go") # input custom function
-        playTournament()
-
+        selectTeam, winCount, lossCount = playTournament()
+        printResults(selectTeam, winCount, lossCount)
     elif choice == "2":
         print("Hold")   # input custom function
     elif choice == "3":
@@ -113,4 +117,3 @@ print(f"Final season record: {home} {winCount}-{lossCount}") """
 
 
 
-playTournament()
