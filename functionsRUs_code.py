@@ -5,7 +5,7 @@
 # Thomas Apke
 
 import random
-
+games = {}
 #Introduction to game, explains rules and prompts for a name
 def intro():
     print("Welcome to the Women's Soccer Season Generator Game!")
@@ -37,6 +37,7 @@ def playTournament():
     winCount = int(0)
     lossCount = int(0)
     # set up a loop to continue running until there are no more teams to select
+    gameCount = 1
     while lstNames.__len__() > 0:
         selectOpp = input("\nEnter which team you want to play: ")
         position = int(lstNames.index(selectOpp))
@@ -49,7 +50,9 @@ def playTournament():
         #simulate the game, add to Win/Loss record
         
 
-        result = playTheGame(selectTeam, selectOpp)
+        result, home_score, away_score = playTheGame(selectTeam, selectOpp)
+        games[f'Game {gameCount}'] = [selectOpp, home_score, away_score] 
+        gameCount += 1
         if result == 'W':
             winCount += 1
             pass
@@ -80,9 +83,8 @@ def playTheGame(homeTeam, awayTeam):
         gameResult = 'W'
     else:
         gameResult = 'L'
-
     
-    return gameResult
+    return gameResult, home_score, away_score
 
 # Function to print team results
 def printResults(selectTeam, winCount, lossCount):
@@ -97,6 +99,13 @@ def menu():
     choice = input("Enter your choice here: ")
     return choice
 
+#return number of games, scores, and overall record
+def displayGameResults(selectTeam):
+    print("\nGame Results:")
+    for game, result in games.items():
+        opponent, home_score, opp_score = result
+        print(f"{game}: {selectTeam} {home_score} - {opponent} {opp_score}")
+
 # main line of code
 while True:
     choice = menu()
@@ -106,7 +115,10 @@ while True:
         selectTeam, winCount, lossCount = playTournament()
         printResults(selectTeam, winCount, lossCount)
     elif choice == "2":
-        print("Hold")   # input custom function
+        if games:
+            displayGameResults(selectTeam)
+        else:
+            print("\nNo games played yet, try simulating a season.")
     elif choice == "3":
         print(f"Goodbye, {player_name}! Thanks for playing.")
         break
@@ -116,16 +128,8 @@ while True:
 
 
 
-#return number of games, scores, and overall record
-print()
-for item in games:
-    opponent = games[item][0]
-    home_score = games[item][1]
-    opp_score = games[item][2]
-    
-    print(f"{selectTeam}'s score: {home_score}, {opponent}'s score: {opp_score}")
 
-print(f"Final season record: {selectTeam} {winCount}-{lossCount}")
+
 
 
 
