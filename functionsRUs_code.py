@@ -5,8 +5,9 @@
 # Thomas Apke
 # professor anderson, section 003
 import random
+# sets up main function that stores other sub function
 def simulateSeason():
-
+# sets up dictionary of games information
     games = {}
     #Introduction to game, explains rules and prompts for a name
     def intro():
@@ -108,7 +109,7 @@ def simulateSeason():
             opponent, home_score, opp_score = result
             print(f"{game}: {selectTeam} {home_score} - {opponent} {opp_score}")
 
-    # main line of code
+    # custom function that takes in user selection to decide what to do next
     while True:
         choice = menu()
         
