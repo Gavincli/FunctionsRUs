@@ -23,7 +23,7 @@ def simulateSeason():
 
     #Get inputs
     # setting up the custom function for the player to pick which team to play as
-    def playTournament():
+    def playTournament(selectOpp = "UVU"):
         print("Choose your team:")
         lstNames=['BYU', 'UVU', 'USU', 'SDSU', 'OSU']
         for team in lstNames:
